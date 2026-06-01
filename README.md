@@ -1,4 +1,4 @@
-# Entregas IA
+# Disciplina de Inteligência Artificial , Professor Munif , Unicesumar 2026
 ## 📚 Turma
 **ESOFT7S-N-A**
 
