@@ -13,4 +13,4 @@
 - **Nathacha Alexsandra Cardoso Calsavara**  
   RA: 23141737-2  
   
-https://www.kaggle.com/datasets/farzadnekouei/trash-type-image-dataset/data
+https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance
