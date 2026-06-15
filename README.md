@@ -16,34 +16,93 @@
 https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance
 
 
-## 1- Contextualização e Hipótese
-	
-O tema escolhido para a realização do trabalho final foi “Hábitos de Estudantes vs Performance Acadêmica”. Com essa base de dados, visamos explorar como diferentes estilos de vida dos estudantes impactam seus resultados acadêmicos, utilizando métricas como idade, gênero, horas de sono e estudo diário, tempo de tela e se o estudante trabalha. O target da base de dados é a nota final, que varia de 0 a 100. 
-	A nossa equipe tem como hipótese que os estudantes que não trabalham e dedicam maiores horas de sono e estudo diário são, consequentemente, os que terão melhor desempenho acadêmico. 
+## 1. Contextualização e Hipótese
 
-## 2- Dataset
-	O dataset escolhido se chama “Students vs Academic Habits” e é disponibilizado pela plataforma “Kaggle”.
+O tema escolhido para a realização do trabalho final foi **“Hábitos de Estudantes vs Performance Acadêmica”**.
 
-### -Origem dos Dados: os dados são sintéticos e foram criados usando bibliotecas Python com distribuições aleatórias e dependências lógicas para simular cenários da vida real.
+Com essa base de dados, buscamos explorar como diferentes estilos de vida dos estudantes podem impactar seus resultados acadêmicos. Para isso, foram analisadas métricas como idade, gênero, horas de sono, horas de estudo diário, tempo de tela e se o estudante trabalha ou não.
 
-### -Quantidade de Registros ou Amostras: 
-  Para o treinamento dos modelos foi utilizado uma database com 1000 registros.
+A variável alvo da base de dados é a **nota final**, que varia de 0 a 100.
 
--Principais atributos ou características: idade, gênero, horas de estudo por dia, tempo de tela, horas de netflix por dia, trabalho, horas de sono e frequência.
+A hipótese da equipe é que estudantes que não trabalham e dedicam mais horas ao sono e ao estudo diário tendem a apresentar melhor desempenho acadêmico.
 
--Variável alvo: nota da avaliação final
+---
 
-## -Tratamento dos dados: 
-  -Árvore: 
-     - Primeiro foi feita uma análise dos dados para identificar a quantidade de colunas, os tipos de dados é se possui valores nulos ou duplicados. 
-      Os valores nulos foram tratados de acordo com o tipo da coluna. Nas colunas categóricas, os valores ausentes foram preenchidos com a moda (valor mais frequente). Já nas numéricas, o preenchimento seria feito com a mediana, reduzindo o impacto de valores extremos, mas a database não possuía nenhuma.
-    - Em seguida, como o modelo da árvore trabalha melhor com valores numéricos, foi feita a conversão dos valores em formato de texto. Esse processo foi feito utilizando a função “pd.get_dummies”, que cria uma nova coluna para cada categoria de texto, trocando dados por 0 ou 1.
-    - Após o tratamento, a coluna “exam_score” foi separada como variável alvo, representando a nota final que o modelo deveria prever. As demais colunas foram utilizadas como variáveis de entrada.
-    - Por fim, os dados foram divididos em 80% para treino e 20% para teste
+## 2. Dataset
 
--RNA:
-   - As variáveis numéricas e categóricas foram tratadas separadamente.
-   - Depois, foi criada a coluna score_class, que transformou a nota exam_score em três categorias: Baixo, Médio e Alto, permitindo usar o modelo para classificação.
-  - Em seguida, foram separadas as variáveis de entrada e saída. A coluna student_id foi removida porque era apenas um identificador. A coluna exam_score foi usada como alvo da regressão, e score_class como alvo da classificação.
-   - As colunas numéricas foram tratadas com preenchimento pela mediana e padronização com StandardScaler. Já as colunas categóricas foram preenchidas com o valor mais frequente e convertidas em números com OneHotEncoder.
-   - Todo esse processo foi organizado em um Pipeline, para que o pré-processamento fosse aplicado automaticamente antes do treinamento da Rede Neural.
+O dataset escolhido se chama **“Students vs Academic Habits”** e está disponível na plataforma **Kaggle**.
+
+### Origem dos Dados
+
+Os dados são sintéticos e foram criados utilizando bibliotecas Python, com distribuições aleatórias e dependências lógicas para simular cenários próximos da vida real.
+
+### Quantidade de Registros
+
+Para o treinamento dos modelos, foi utilizada uma base de dados com **1000 registros**.
+
+### Principais Atributos
+
+Os principais atributos presentes na base são:
+
+- Idade
+- Gênero
+- Horas de estudo por dia
+- Tempo de tela
+- Horas de Netflix por dia
+- Trabalho
+- Horas de sono
+- Frequência
+
+### Variável Alvo
+
+A variável alvo utilizada foi a **nota da avaliação final**, representada pela coluna `exam_score`.
+
+---
+
+## Tratamento dos Dados
+
+### Árvore de Decisão
+
+Primeiramente, foi realizada uma análise inicial dos dados para identificar a quantidade de colunas, os tipos de dados e a existência de valores nulos ou duplicados.
+
+Os valores nulos foram tratados de acordo com o tipo da coluna. Nas colunas categóricas, os valores ausentes foram preenchidos com a moda, ou seja, o valor mais frequente. Já nas colunas numéricas, o preenchimento seria feito com a mediana, reduzindo o impacto de valores extremos. Porém, a base de dados não possuía valores nulos nessas colunas.
+
+Em seguida, como o modelo de Árvore de Decisão trabalha melhor com valores numéricos, foi feita a conversão dos dados em formato de texto. Esse processo foi realizado com a função `pd.get_dummies`, que cria novas colunas para cada categoria textual, representando os valores com 0 ou 1.
+
+Após o tratamento, a coluna `exam_score` foi separada como variável alvo, representando a nota final que o modelo deveria prever. As demais colunas foram utilizadas como variáveis de entrada.
+
+Por fim, os dados foram divididos em **80% para treino** e **20% para teste**.
+
+---
+
+### RNA
+
+No modelo de Rede Neural Artificial, as variáveis numéricas e categóricas foram tratadas separadamente.
+
+Depois, foi criada a coluna `score_class`, que transformou a nota `exam_score` em três categorias:
+
+- Baixo
+- Médio
+- Alto
+
+Essa transformação permitiu utilizar o modelo também para uma tarefa de classificação.
+
+Em seguida, foram separadas as variáveis de entrada e saída. A coluna `student_id` foi removida, pois era apenas um identificador. A coluna `exam_score` foi utilizada como alvo da regressão, enquanto a coluna `score_class` foi utilizada como alvo da classificação.
+
+As colunas numéricas foram tratadas com preenchimento pela mediana e padronização utilizando `StandardScaler`. Já as colunas categóricas foram preenchidas com o valor mais frequente e convertidas em números com `OneHotEncoder`.
+
+Todo esse processo foi organizado em um `Pipeline`, fazendo com que o pré-processamento fosse aplicado automaticamente antes do treinamento da Rede Neural.
+
+---
+
+## 3. Modelos Obrigatórios
+
+O trabalho foi desenvolvido utilizando dois modelos principais:
+
+### Parte 1: Árvore de Decisão Regressora
+
+A Árvore de Decisão Regressora foi utilizada para prever a nota final dos estudantes com base em seus hábitos e características.
+
+### Parte 2: Rede Neural Artificial
+
+A Rede Neural Artificial foi utilizada tanto para regressão, usando a nota final como alvo, quanto para classificação, utilizando a coluna `score_class`.
