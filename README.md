@@ -44,16 +44,7 @@ Para o treinamento dos modelos, foi utilizada uma base de dados com **1000 regis
 
 ### Principais Atributos
 
-Os principais atributos presentes na base são:
-
-- Idade
-- Gênero
-- Horas de estudo por dia
-- Tempo de tela
-- Horas de Netflix por dia
-- Trabalho
-- Horas de sono
-- Frequência
+Foram utilizados todos os atributos da tabela.
 
 ### Variável Alvo
 
