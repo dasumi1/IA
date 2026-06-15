@@ -128,6 +128,23 @@ R: 0.61
 
 ### RNA
 
+## Comparação Entre Modelos
+
+A comparação entre os modelos foi feita usando métricas de regressão). 
+
+Como o problema é de regressão, não existe uma “acurácia” tradicional como em problemas de classificação. Por isso, a taxa de acerto foi interpretada pelo R², que mostra o quanto o modelo conseguiu explicar os resultados reais das notas.
+
+### RNA Regressora:
+O modelo obteve MAE de 4,02, RMSE de 5,16 e R² de 0,90. 
+Isso significa que a RNA teve uma taxa aproximada de acerto de 90%, pois conseguiu explicar cerca de 90% da variação das notas dos alunos. Em média, ela errou aproximadamente 4 pontos na previsão da nota final.
+
+### Árvore de Decisão: 
+Teve uma taxa aproximada de acerto de 71%. Em média, o modelo errou cerca de 6,96 pontos na previsão da nota final dos estudantes.
+
+Comparando os dois modelos, a RNA Regressora apresentou melhor desempenho preditivo.
+Além disso, a RNA também apresentou menores valores de erro. O MAE da Árvore de Decisão foi de 6,96, enquanto o da RNA foi de 4,02. Isso mostra que a RNA errou, em média, quase 3 pontos a menos que a Árvore de Decisão.
+
+
 
 
 
