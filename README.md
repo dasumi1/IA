@@ -24,9 +24,9 @@ O tema escolhido para a realização do trabalho final foi “Hábitos de Estuda
 ## 2- Dataset
 	O dataset escolhido se chama “Students vs Academic Habits” e é disponibilizado pela plataforma “Kaggle”.
 
--Origem dos Dados: os dados são sintéticos e foram criados usando bibliotecas Python com distribuições aleatórias e dependências lógicas para simular cenários da vida real.
+### -Origem dos Dados: os dados são sintéticos e foram criados usando bibliotecas Python com distribuições aleatórias e dependências lógicas para simular cenários da vida real.
 
--Quantidade de Registros ou Amostras: 
+### -Quantidade de Registros ou Amostras: 
   Para o treinamento dos modelos foi utilizado uma database com 1000 registros.
 
 -Principais atributos ou características: idade, gênero, horas de estudo por dia, tempo de tela, horas de netflix por dia, trabalho, horas de sono e frequência.
