@@ -11,7 +11,9 @@
   RA: 23123538-2  
 
 - **Nathacha Alexsandra Cardoso Calsavara**  
-  RA: 23141737-2  
+  RA: 23141737-2
+
+### Acesse o Dataset por meio deste link e faça o dowload
   
 https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance
 
