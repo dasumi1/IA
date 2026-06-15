@@ -106,3 +106,28 @@ A Árvore de Decisão Regressora foi utilizada para prever a nota final dos estu
 ### Parte 2: Rede Neural Artificial
 
 A Rede Neural Artificial foi utilizada tanto para regressão, usando a nota final como alvo, quanto para classificação, utilizando a coluna `score_class`.
+
+## 7. Avaliações dos Modelos
+
+### Árvore:
+
+#### -Métricas: MAE, MSE, RMSE e R²
+MAE: 6.96
+MSE: 74.64
+RMSE: 8.7
+R: 0.61
+
+#### -Gráfico de dispersão comparando nota real e nota prevista:
+<img width="989" height="490" alt="image" src="https://github.com/user-attachments/assets/be830d51-8f5d-47e6-af8a-23623933182c" />
+
+#### -Importância das variáveis:
+<img width="790" height="490" alt="image" src="https://github.com/user-attachments/assets/bbf253ca-e3c2-4280-95b4-8ae3374a24b3" />
+
+#### -Árvore de decisão:
+<img width="1769" height="790" alt="image" src="https://github.com/user-attachments/assets/2c549e6a-a5c9-46fa-955d-03b72acf8e3a" />
+
+### RNA
+
+
+
+
