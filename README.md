@@ -17,6 +17,9 @@
   
 https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-performance
 
+### Para usar os notebooks:
+-Acesse a pasta IA - Trabalho Final
+-Se a database não tiver carregada no documento, importe na plataforma Collab
 
 ## 1. Contextualização e Hipótese
 
