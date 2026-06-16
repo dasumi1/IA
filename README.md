@@ -20,7 +20,7 @@ https://www.kaggle.com/datasets/jayaantanaath/student-habits-vs-academic-perform
 
 ## 1. Contextualização e Hipótese
 
-O tema escolhido para a realização do trabalho final foi **“Hábitos de Estudantes vs Performance Acadêmica”**.
+O tema escolhido para a realização do trabalho final foi **"Hábitos de Estudantes vs Performance Acadêmica"**.
 
 Com essa base de dados, buscamos explorar como diferentes estilos de vida dos estudantes podem impactar seus resultados acadêmicos. Para isso, foram analisadas métricas como idade, gênero, horas de sono, horas de estudo diário, tempo de tela e se o estudante trabalha ou não.
 
@@ -32,7 +32,7 @@ A hipótese da equipe é que estudantes que não trabalham e dedicam mais horas 
 
 ## 2. Dataset
 
-O dataset escolhido se chama **“Students vs Academic Habits”** e está disponível na plataforma **Kaggle**.
+O dataset escolhido se chama **"Students vs Academic Habits"** e está disponível na plataforma **Kaggle**.
 
 ### Origem dos Dados
 
@@ -121,11 +121,81 @@ R: 0.61
 
 ### RNA
 
+#### RNA Classificação
+
+**Métricas:** Acurácia, Precisão Macro, Recall Macro e F1 Macro.
+
+Para o baseline:
+- Acurácia: 0.445
+- Precisão Macro: 0.148333
+- Recall Macro: 0.333333
+- F1 Macro: 0.205306
+
+Para a RNA Classificadora - MLPClassifier:
+- Acurácia: 0.830
+- Precisão Macro: 0.836198
+- Recall Macro: 0.831958
+- F1 Macro: 0.833998
+
+#### -Curva de perda durante o treinamento — Classificação:
+<img width="788" height="490" alt="image" src="https://github.com/user-attachments/assets/42340c2a-8b1a-4c15-be92-9d9472a48bef" />
+
+Mostra como o erro da RNA diminui a cada época de treinamento.
+
+#### -Matriz de confusão da RNA no conjunto de teste:
+<img width="672" height="590" alt="image" src="https://github.com/user-attachments/assets/78380388-9a5a-43c4-928e-0478f4cdf4e9" />
+
+Linha = Classe Real, Coluna = Classe Prevista. Diagonal principal = Acertos. Outras células = Erros.
+
+#### -Comparação entre acurácia, precisão, recall e F1 — Baseline vs. RNA Classificadora:
+<img width="889" height="490" alt="image" src="https://github.com/user-attachments/assets/93c4e0ac-212f-46e2-aeef-0e764db9facb" />
+
+---
+
+#### RNA Regressora
+
+**Métricas:** MAE, MSE, RMSE e R².
+
+Para o baseline:
+- MAE: 13.476905
+- MSE: 270.195759
+- RMSE: 16.437632
+- R²: -0.000509
+
+Para a RNA Regressora - MLPRegressor:
+- MAE: 4.015486
+- MSE: 26.652349
+- RMSE: 5.162591
+- R²: 0.901309
+
+#### -Curva de perda durante o treinamento — Regressão:
+<img width="790" height="490" alt="image" src="https://github.com/user-attachments/assets/537d4126-5caf-4436-8669-f6ce5f690fef" />
+
+#### -Gráfico de notas reais vs. notas previstas:
+<img width="690" height="690" alt="image" src="https://github.com/user-attachments/assets/1d923e25-cca4-4c97-b96d-7950967b4ec9" />
+
+Pontos representam alunos, a linha tracejada é a linha ideal. Quanto mais próximos os pontos estiverem da linha, melhor o modelo. Os pontos muito próximos à linha confirmam o alto R² obtido.
+
+#### -Gráfico de resíduos:
+<img width="790" height="490" alt="image" src="https://github.com/user-attachments/assets/039e8a9c-7b95-4262-8b85-c23746df26cc" />
+
+X - nota prevista. Y - erro (nota real - nota prevista). Idealmente, os resíduos devem estar distribuídos aleatoriamente em torno do zero, sem padrões como curvas ou concentrações.
+
+#### -Comparação de MAE e RMSE — Baseline vs. RNA:
+<img width="889" height="489" alt="image" src="https://github.com/user-attachments/assets/65246368-ec8c-4cd4-a4ed-314aac1beb7b" />
+
+#### -Comparação de R² — Baseline vs. RNA:
+<img width="790" height="489" alt="image" src="https://github.com/user-attachments/assets/a9e28731-cc29-4b7d-8986-d3eacdfde541" />
+
+O baseline tem R² ≈ 0, pois não aprende nenhum padrão. A RNA atinge R² de 0.90, indicando que 90% da variação nas notas é explicada pelos hábitos dos alunos.
+
+---
+
 ## Comparação Entre Modelos
 
-A comparação entre os modelos foi feita usando métricas de regressão). 
+A comparação entre os modelos foi feita usando métricas de regressão.
 
-Como o problema é de regressão, não existe uma “acurácia” tradicional como em problemas de classificação. Por isso, a taxa de acerto foi interpretada pelo R², que mostra o quanto o modelo conseguiu explicar os resultados reais das notas.
+Como o problema é de regressão, não existe uma "acurácia" tradicional como em problemas de classificação. Por isso, a taxa de acerto foi interpretada pelo R², que mostra o quanto o modelo conseguiu explicar os resultados reais das notas.
 
 ### RNA Regressora:
 O modelo obteve MAE de 4,02, RMSE de 5,16 e R² de 0,90. 
@@ -136,8 +206,3 @@ Teve uma taxa aproximada de acerto de 71%. Em média, o modelo errou cerca de 6,
 
 Comparando os dois modelos, a RNA Regressora apresentou melhor desempenho preditivo.
 Além disso, a RNA também apresentou menores valores de erro. O MAE da Árvore de Decisão foi de 6,96, enquanto o da RNA foi de 4,02. Isso mostra que a RNA errou, em média, quase 3 pontos a menos que a Árvore de Decisão.
-
-
-
-
-
